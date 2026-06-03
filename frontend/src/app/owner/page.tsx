@@ -75,7 +75,7 @@ export default function OwnerDashboard() {
         sortOrder,
       }).toString();
 
-      const res = await fetch(`http://localhost:5000/api/owner/dashboard?${query}`, {
+      const res = await fetch(`http://localhost:5001/api/owner/dashboard?${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -132,7 +132,7 @@ export default function OwnerDashboard() {
 
     setPassLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/auth/change-password', {
+      const res = await fetch('http://localhost:5001/api/auth/change-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
