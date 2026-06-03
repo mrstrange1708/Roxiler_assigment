@@ -68,7 +68,7 @@ export default function UserDashboard() {
         sortBy,
         sortOrder,
       }).toString();
-      const res = await fetch(`http://localhost:5001/api/stores?${query}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/stores?${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -95,7 +95,7 @@ export default function UserDashboard() {
     setRatingError(null);
 
     try {
-      const res = await fetch('http://localhost:5001/api/ratings', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ratings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ export default function UserDashboard() {
 
     setPassLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/auth/change-password', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/change-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

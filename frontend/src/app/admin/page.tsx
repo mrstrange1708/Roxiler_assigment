@@ -108,7 +108,7 @@ export default function AdminDashboard() {
   const fetchStats = useCallback(async () => {
     if (!token) return;
     try {
-      const res = await fetch('http://localhost:5001/api/admin/stats', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/stats`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -134,7 +134,7 @@ export default function AdminDashboard() {
         sortBy,
         sortOrder,
       }).toString();
-      const res = await fetch(`http://localhost:5001/api/admin/users?${query}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users?${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -159,7 +159,7 @@ export default function AdminDashboard() {
         sortBy,
         sortOrder,
       }).toString();
-      const res = await fetch(`http://localhost:5001/api/admin/stores?${query}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/stores?${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -195,7 +195,7 @@ export default function AdminDashboard() {
     if (!token) return;
     setDetailsLoading(true);
     try {
-      const res = await fetch(`http://localhost:5001/api/admin/users/${userId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
@@ -255,7 +255,7 @@ export default function AdminDashboard() {
 
     setUserFormSubmitting(true);
     try {
-      const res = await fetch('http://localhost:5001/api/admin/users', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -332,7 +332,7 @@ export default function AdminDashboard() {
 
     setStoreFormSubmitting(true);
     try {
-      const res = await fetch('http://localhost:5001/api/admin/stores', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/stores`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
